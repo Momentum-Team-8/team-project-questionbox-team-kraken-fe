@@ -1,10 +1,10 @@
-import logo from './logo.svg';
+import React, { useState } from "react";
 import './App.css';
 
 export function App() {
     const [data, setData] = useState ([
         {
-            answers:{
+            answers: [
                 {
                     id: '1',
                     text: 'stufffffff',
@@ -31,14 +31,14 @@ export function App() {
                 },
                 {
                     id: '4',
-                    text: 'idk i dont use that,
+                    text: 'idk i dont use that',
                     username: 'emily', 
                     approved: 'false',
                     favorited: 'false',
                     created_at: '54 years ago'
                 }
-            },
-            questions: {
+            ],
+            questions: [
                 {
                     id: '1',
                     text: 'how do i center a div?',
@@ -67,11 +67,12 @@ export function App() {
                     created_at: 'yesterday',
                     favorited: 'false'
                 },
-            }
+            ]
         }
     ])
     return (
-    
+    <h1>hello there</h1>
+    )
 }
 
 export default App;
