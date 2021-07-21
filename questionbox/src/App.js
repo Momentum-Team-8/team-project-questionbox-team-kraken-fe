@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import './App.css';
 
 export function App() {
-    const [data, setData] = useState ([
-        {
+    const [data, setData] = useState ({
             answers: [
                 {
                     id: '1',
@@ -41,6 +40,7 @@ export function App() {
             questions: [
                 {
                     id: '1',
+                    title: 'centering',
                     text: 'how do i center a div?',
                     username: 'roan',
                     created_at: '8 years ago',
@@ -48,6 +48,7 @@ export function App() {
                 },
                 {
                     id: '2',
+                    title: 'new here',
                     text: 'how do i post a question?',
                     username: 'emily',
                     created_at: 'tomorrow woah crazy',
@@ -55,6 +56,7 @@ export function App() {
                 },
                 {
                     id: '3',
+                    title: 'BSCode?',
                     text: 'which IDE should I use? I was thinking about the notes app.',
                     username: 'shaune',
                     created_at: 'today',
@@ -62,16 +64,21 @@ export function App() {
                 },
                 {
                     id: '4',
+                    title: 'IE4???',
                     text: 'how do I support Internet Explorer 4 in css?',
                     username: 'dee',
                     created_at: 'yesterday',
                     favorited: 'false'
-                },
+                }
             ]
         }
-    ])
+    )
     return (
+    <>
     <h1>hello there</h1>
+
+    
+    </>
     )
 }
 
