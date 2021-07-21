@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import './App.css';
+import { Question } from './components/Question.js';
 
 export function App() {
     const [data, setData] = useState ({
@@ -76,7 +77,7 @@ export function App() {
     return (
     <>
     <h1>hello there</h1>
-
+    <Question questions={data.questions}/>
     
     </>
     )
