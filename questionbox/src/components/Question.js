@@ -7,10 +7,12 @@ export const Question = (props) => {
         <>
         {questions.map((question, idx) => {
             return (
-                <>
-                <h1>{question.title}</h1>
+                <div className="question-card">
+                <h2>{question.title}</h2>
                 <h3>{question.text}</h3>
-                </>
+                <p>{question.username}</p>
+                <p>{question.created_at}</p>
+                </div>
             )
             
     })}

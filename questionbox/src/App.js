@@ -76,9 +76,8 @@ export function App() {
     )
     return (
     <>
-    <h1>hello there</h1>
+    <h1>QuestionBox</h1>
     <Question questions={data.questions}/>
-    
     </>
     )
 }
