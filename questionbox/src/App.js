@@ -75,11 +75,17 @@ export function App() {
         }
     )
     return (
-    <>
-    <h1>QuestionBox</h1>
-    <Question questions={data.questions}/>
-    </>
+        <>
+        <h1>QuestionBox</h1>
+        {data.questions.map((question, idx) => {
+            return (
+                <Question question={question}/>
+            )
+        })}
+        </>
     )
 }
+
+/* <QuestionDetails question={selectedQuestion} setExpanded={setExpanded} /> */
 
 export default App;

@@ -1,31 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { QuestionDetails } from "./QuestionDetails";
 
 export const Question = (props) => {
     const [expanded, setExpanded] = useState(false)
-    const { questions } = props
+    const [selectedQuestion, setSelectedQuestion] = useState(null)
 
-    // const seeDetails = () => {
-    //     setExpanded(true)
-    // }
+    const { question } = props
 
-    if (expanded) {
-        return (
-            <h1>I HAVE BEEN EXPANDED</h1>
-        )
-    } else {
-        return (
-            <>
-            {questions.map((question, idx) => {
-                return (
-                    <div className="question-card" onClick={() => setExpanded(true)}>
-                    <h2>{question.title}</h2>
-                    <p>{question.username}</p>
-                    <p>{question.created_at}</p>
-                    </div>
-                )
-                
-        })}
-        </>
-        )
+    const seeDetails = (question) => {
+        setExpanded(true)
+        setSelectedQuestion(question)
     }
+
+    // useEffect(() => {
+    //     seeDetails()
+    // }, [])
+
+
+
+
+
+    return (
+        <div className="question-card">
+            <h2>{question.title}</h2>
+            <p>{question.username}</p>
+            <p>{question.created_at}</p>
+        </div>
+    )
+
 }
