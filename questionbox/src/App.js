@@ -80,17 +80,22 @@ export function App () {
 
   return expanded
     ? <>
-      <h1>QuestionBox</h1>
+      <h1 className="title">QuestionBox</h1>
       <QuestionDetails question={selectedQuestion} setExpanded={setExpanded} />
       </>
     : (
       <>
-        <h1>QuestionBox</h1>
-        {data.questions.map((question, idx) => {
-          return (
-            <Question question={question} setExpanded={setExpanded} setSelectedQuestion={setSelectedQuestion} />
-          )
-        })}
+        <h1 className="title">QuestionBox</h1>
+        <main>
+            <div className="questions">
+                <h2>Top Questions</h2>
+                {data.questions.map((question, idx) => {
+                return (
+                    <Question question={question} setExpanded={setExpanded} setSelectedQuestion={setSelectedQuestion} />
+                )
+                })}
+            </div>
+        </main>
       </>
       )
 }

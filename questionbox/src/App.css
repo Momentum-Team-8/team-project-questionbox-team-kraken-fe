@@ -1,40 +1,53 @@
-.App {
-  text-align: center;
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    font-family: Helvetica, sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+main {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    background-color: #eeeeee;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.title {
+    height: 70px;
+    background-color: #535353;
+    color: white;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.questions > h2 {
+    height: 100px;
+    padding: 20px;
+    border: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+    background-color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.question-card {
+    padding: 20px;
+    border: 1px solid lightgray;
+    width: 60vw;
+    height: fit-content;
+    background-color: white;
+    font-weight: 200;
+}
+
+.question-card > h2 {
+    width: fit-content;
+    font-weight: 400;
+    color: #3268BC;
 }
 
 .question-card > h2:hover {
