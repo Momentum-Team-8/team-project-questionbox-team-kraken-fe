@@ -15,8 +15,8 @@ export const Question = (props) => {
 
 
     return (
-        <div className="question-card" onClick={() => seeDetails(question)}>
-            <h2>{question.title}</h2>
+        <div className="question-card">
+            <h2 onClick={() => seeDetails(question)}>{question.title}</h2>
             <p>{question.username}</p>
             <p>{question.created_at}</p>
         </div>
