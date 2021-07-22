@@ -55,3 +55,38 @@ main {
     cursor: pointer;
     color: grey;
 }
+
+.question-details {
+    padding: 20px;
+    border: 1px solid lightgray;
+    width: 60vw;
+    height: fit-content;
+    background-color: #FDFFFC;
+    font-weight: 200;
+}
+
+.question-details > h1 {
+    margin-bottom: 50px;
+    padding-bottom: 10px;
+    font-weight: 500;
+    border-bottom: 1px solid lightgray;
+}
+
+.question-details > .text {
+    margin-bottom: 50px;
+    font-weight: bolder;
+}
+
+.question-details > form {
+    margin-top: 100px;
+    padding-top: 10px;
+    border-top: 1px solid lightgray;
+}
+
+.go-back {
+    position: absolute;
+    padding: 5px;
+    margin-left: 50px;
+    margin-top: 20px;
+    cursor: pointer;
+}

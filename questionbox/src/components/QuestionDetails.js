@@ -5,14 +5,12 @@ export const QuestionDetails = (props) => {
   const { question, setExpanded } = props
 
   return (
-    <div className='question-card'>
-      <h2>{question.title}</h2>
-      <h3>{question.text}</h3>
-      <Answers />
+    <div className='question-details'>
+      <h1>{question.title}</h1>
+      <p className="text">{question.text}</p>
       <p>{question.username}</p>
       <p>{question.created_at}</p>
-
-      <button onClick={() => setExpanded(false)}>go back</button>
+      <Answers />
     </div>
   )
 }

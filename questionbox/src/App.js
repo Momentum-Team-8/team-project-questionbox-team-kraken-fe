@@ -80,9 +80,12 @@ export function App () {
 
   return expanded
     ? <>
-      <h1 className="title">QuestionBox</h1>
-      <QuestionDetails question={selectedQuestion} setExpanded={setExpanded} />
-      </>
+        <h1 className="title">QuestionBox</h1>
+        <button className="go-back" onClick={() => setExpanded(false)}>← go back</button>
+            <main>
+                <QuestionDetails question={selectedQuestion} setExpanded={setExpanded} />
+            </main>
+        </>
     : (
       <>
         <h1 className="title">QuestionBox</h1>

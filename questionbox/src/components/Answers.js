@@ -8,7 +8,7 @@ export const Answers = () => {
   return (
     <>
       <form>
-        <h1>Answer</h1>
+        <h3>Answer this question</h3>
         <div>
           <textarea
             value={text}
