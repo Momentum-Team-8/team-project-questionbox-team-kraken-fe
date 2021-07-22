@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import './App.css';
 import { Question } from './components/Question.js';
+import { QuestionDetails } from "./components/QuestionDetails";
 
 export function App() {
+    const [expanded, setExpanded] = useState(false)
+    const [selectedQuestion, setSelectedQuestion] = useState(null)
     const [data, setData] = useState ({
             answers: [
                 {
@@ -74,18 +77,23 @@ export function App() {
             ]
         }
     )
-    return (
-        <>
-        <h1>QuestionBox</h1>
-        {data.questions.map((question, idx) => {
-            return (
-                <Question question={question}/>
-            )
-        })}
-        </>
+
+return expanded
+        ?
+            <>
+            <h1>QuestionBox</h1>
+            <QuestionDetails question={selectedQuestion} setExpanded={setExpanded} />
+            </>
+        : (
+            <>
+            <h1>QuestionBox</h1>
+            {data.questions.map((question, idx) => {
+                return (
+                    <Question question={question} setExpanded={setExpanded} setSelectedQuestion={setSelectedQuestion}/>
+                )
+            })}
+            </>
     )
 }
-
-/* <QuestionDetails question={selectedQuestion} setExpanded={setExpanded} /> */
 
 export default App;
