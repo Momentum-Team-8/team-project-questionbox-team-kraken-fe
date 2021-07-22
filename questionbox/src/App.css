@@ -20,6 +20,7 @@ main {
     background-color: #535353;
     color: white;
     position: sticky;
+    font-weight: lighter;
     top: 0;
     display: flex;
     align-items: center;
@@ -32,7 +33,7 @@ main {
     border: 1px solid lightgray;
     display: flex;
     align-items: center;
-    background-color: white;
+    background-color: #FDFFFC;
 }
 
 .question-card {
@@ -40,7 +41,7 @@ main {
     border: 1px solid lightgray;
     width: 60vw;
     height: fit-content;
-    background-color: white;
+    background-color: #FDFFFC;
     font-weight: 200;
 }
 
