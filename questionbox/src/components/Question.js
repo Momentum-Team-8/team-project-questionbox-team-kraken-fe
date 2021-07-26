@@ -8,9 +8,6 @@ export const Question = (props) => {
     setSelectedQuestion(question)
   }
 
-  // useEffect(() => {
-  //     seeDetails()
-  // }, [])
 
   return (
     <div className='question-card'>

@@ -31,8 +31,6 @@ export function App () {
       // or token changes
   }, [token])
 
-  console.log(data)
-
     if (token) { 
         return expanded
             ? <>
