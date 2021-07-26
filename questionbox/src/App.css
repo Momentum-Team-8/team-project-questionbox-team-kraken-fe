@@ -83,10 +83,28 @@ main {
     border-top: 1px solid lightgray;
 }
 
-.go-back {
-    position: absolute;
-    padding: 5px;
-    margin-left: 50px;
-    margin-top: 20px;
+.list > :hover{
     cursor: pointer;
+    color: grey; 
+  
 }
+.list   { 
+    margin-top: 20px;
+    padding-top: 10px;
+    list-style-type: none;
+    position: sticky;
+    top: 80px;
+    margin-right: 0px; 
+}
+
+.list_button {
+    margin-right: 10px;
+    margin-bottom: 20px; 
+    font-size: 10px;
+}
+
+.LabelImportantTwoToneIcon {
+    width: 60;
+    height: 60;
+  }
+

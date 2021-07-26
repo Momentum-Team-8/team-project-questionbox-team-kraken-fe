@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './App.css'
 import { Question } from './components/Question.js'
 import { QuestionDetails } from './components/QuestionDetails'
+import { Sidebar } from './components/Sidebar'
 
 export function App () {
   const [expanded, setExpanded] = useState(false)
@@ -73,6 +74,38 @@ export function App () {
         username: 'dee',
         created_at: 'yesterday',
         favorited: 'false'
+      },
+      {
+        id: '1',
+        title: 'centering',
+        text: 'how do i center a div?',
+        username: 'roan',
+        created_at: '8 years ago',
+        favorited: 'false'
+      },
+      {
+        id: '2',
+        title: 'new here',
+        text: 'how do i post a question?',
+        username: 'emily',
+        created_at: 'tomorrow woah crazy',
+        favorited: 'false'
+      },
+      {
+        id: '3',
+        title: 'BSCode?',
+        text: 'which IDE should I use? I was thinking about the notes app.',
+        username: 'shaune',
+        created_at: 'today',
+        favorited: 'false'
+      },
+      {
+        id: '4',
+        title: 'IE4???',
+        text: 'how do I support Internet Explorer 4 in css?',
+        username: 'dee',
+        created_at: 'yesterday',
+        favorited: 'false'
       }
     ]
   }
@@ -80,24 +113,26 @@ export function App () {
 
   return expanded
     ? <>
-        <h1 className="title">QuestionBox</h1>
-        <button className="go-back" onClick={() => setExpanded(false)}>← go back</button>
-            <main>
-                <QuestionDetails question={selectedQuestion} setExpanded={setExpanded} />
-            </main>
-        </>
+      <h1 className='title'>QuestionBox</h1>
+      <main>
+        <Sidebar />
+        <QuestionDetails question={selectedQuestion} setExpanded={setExpanded} />
+      </main>
+    </>
     : (
       <>
-        <h1 className="title">QuestionBox</h1>
+        <h1 className='title'>QuestionBox</h1>
         <main>
-            <div className="questions">
-                <h2>Top Questions</h2>
-                {data.questions.map((question, idx) => {
-                return (
-                    <Question question={question} setExpanded={setExpanded} setSelectedQuestion={setSelectedQuestion} />
-                )
-                })}
-            </div>
+          <Sidebar />
+          <div className='questions'>
+            <h2>Top Questions</h2>
+            {data.questions.map((question, idx) => {
+              return (
+                <Question question={question} setExpanded={setExpanded} setSelectedQuestion={setSelectedQuestion} />
+              )
+            })}
+          </div>
+
         </main>
       </>
       )
