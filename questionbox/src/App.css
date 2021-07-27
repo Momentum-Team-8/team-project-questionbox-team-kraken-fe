@@ -192,3 +192,9 @@ main {
     background-color: rgb(233, 233, 233);
     cursor: pointer;
 }
+
+.textarea {
+margin: 0px; 
+height: 400px; 
+width: 600px;
+}

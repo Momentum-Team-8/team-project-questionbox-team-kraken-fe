@@ -4,6 +4,7 @@ import { Register } from './Register'
 import { requestLogin } from '../api.js'
 
 export const Login = ({ setAuthToken }) => {
+
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [register, setRegister] = useState(false)
@@ -63,7 +64,7 @@ export const Login = ({ setAuthToken }) => {
             </form>
         </main>
       </>
-    )
-  }
-  
-  export default Login
+  )
+}
+
+export default Login
