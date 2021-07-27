@@ -5,20 +5,21 @@ export const Answers = () => {
   const handleChange = (event) => {
     setText(event.target.value)
   }
+
   return (
     <>
-      <form>
-        <h3>Answer this question</h3>
-        <div>
+      <form className='answer-form'>
+        <h3>Your Answer</h3>
+        <div className='question-text'>
           <textarea
+            placeholder='remember, be nice...'
+            id='body'
             value={text}
             onChange={handleChange}
           />
         </div>
         <div>
-          <h2 />
-          <p>{text}</p>
-          <input type='submit' value='Submit' />
+          <input className='submit' type='submit' value='Submit' />
         </div>
       </form>
     </>

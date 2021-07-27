@@ -7,7 +7,7 @@ export const QuestionDetails = (props) => {
   return (
     <div className='question-details'>
       <h1>{question.title}</h1>
-      <p className="text">{question.text}</p>
+      <p className='text'>{question.text}</p>
       <p>{question.username}</p>
       <p>{question.created_at}</p>
       <Answers />

@@ -8,7 +8,6 @@ export const Question = (props) => {
     setSelectedQuestion(question)
   }
 
-
   return (
     <div className='question-card'>
       <h2 onClick={() => seeDetails(question)}>{question.title}</h2>
