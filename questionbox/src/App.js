@@ -7,6 +7,7 @@ import { Sidebar } from './components/Sidebar'
 import { Login } from './components/Login'
 import { NewQuestion } from './components/NewQuestion'
 import { requestQuestions } from './api'
+import { requestLogout } from './api'
 
 export function App () {
   const [expanded, setExpanded] = useState(false)
@@ -28,7 +29,8 @@ export function App () {
     }
   }, [token])
 
-  const handleLogout = () => {
+  const handleLogout = (token) => {
+    requestLogout(token)
     setToken('')
   }
 
@@ -51,11 +53,10 @@ export function App () {
         <main>
                 <Sidebar />
                 <QuestionDetails question={selectedQuestion} setExpanded={setExpanded} />
-              </main>
-        </>
-      : (
-        <>
-                <h1 className='title'>QuestionBox</h1>
+            </main>
+            </>
+            : (
+            <>
                 <main>
                 <Sidebar />
                 <div className='questions'>
@@ -67,11 +68,11 @@ export function App () {
                         return (
                             <Question question={question} setExpanded={setExpanded} setSelectedQuestion={setSelectedQuestion} />
                         )
-                      })}
-                  </div>
-                <button className='logout' onClick={() => handleLogout()}>Logout</button>
-              </main>
-              </>
+
+                        })}
+                    </div>
+                </main>
+            </>
         )
   } else {
     return (

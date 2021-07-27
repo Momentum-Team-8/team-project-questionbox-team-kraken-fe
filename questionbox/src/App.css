@@ -25,6 +25,7 @@ main {
     display: flex;
     align-items: center;
     padding-left: 20px;
+    justify-content: space-between;
 }
 
 .questions {
@@ -180,13 +181,11 @@ main {
 }
 
 .logout {
-    position: absolute;
     border: 1px solid black;
     border-radius: 2px;
     background-color: white;
     padding: 10px;
-    height: 40px;
-    margin-bottom: 300px;
+    margin-right: 50px;
 }
 
 .logout:hover {
