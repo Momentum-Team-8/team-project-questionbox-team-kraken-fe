@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 const answers = [
   {
     id: '1',
@@ -109,7 +111,11 @@ const questions = [
 ]
 
 export function requestLogin (username, password) {
-  return fakeAuthentication(username, password)
+  return axios.post('https://team-kraken-questionbox.herokuapp.com/auth/token/login', {
+    username: username,
+    password: password,
+  })
+
 }
 
 export function requestUser (token, username) {
@@ -117,7 +123,14 @@ export function requestUser (token, username) {
 }
 
 export function requestQuestions (token) {
-  return fakeQuestionsRequest(token)
+  return getQuestionList(token)
+}
+
+function getQuestionList(token) {
+    if (token) {
+        return axios.get('https://team-kraken-questionbox.herokuapp.com/questions')
+        .then(res => res)
+    }
 }
 
 function fakeAuthentication (username, password) {
