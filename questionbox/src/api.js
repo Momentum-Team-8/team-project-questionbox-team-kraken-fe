@@ -201,15 +201,16 @@ function fakeQuestionsRequest(token) {
     })
 }
 
-function fakeQuestionDetail(token, id) {
-    return new Promise((resolve, reject) => {
-        if (token && id) {
-            resolve ({
-                question: questions[0]
-            })
-        }
-    })
-}
+// function fakeQuestionDetail(token, id) {
+//     return new Promise((resolve, reject) => {
+//         if (token && id) {
+//             resolve ({
+//                 question: questions[id]
+//             })
+//         }
+//         reject(new Error('authentication failed'))
+//     })
+// }
 
 function fakeCreateQuestion(token, question) {
     return new Promise((resolve, reject) => {

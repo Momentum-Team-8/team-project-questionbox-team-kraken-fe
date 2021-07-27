@@ -5,6 +5,7 @@ import { Question } from './components/Question.js'
 import { QuestionDetails } from './components/QuestionDetails'
 import { Sidebar } from './components/Sidebar'
 import { Login } from './components/Login'
+import { NewQuestion } from './components/NewQuestion'
 import { requestQuestions } from './api'
 
 export function App () {
@@ -12,6 +13,7 @@ export function App () {
   const [selectedQuestion, setSelectedQuestion] = useState(null)
   const [data, setData] = useState([])
   const [token, setToken] = useLocalStorageState('token', '')
+  const [asking, setAsking] = useState(false)
 
   function setAuthToken (token) {
     setToken(token)
@@ -31,7 +33,18 @@ export function App () {
       // or token changes
   }, [token])
 
-  console.log(data)
+
+    if (asking) {
+        return (
+            <>
+            <h1 className='title'>QuestionBox</h1>
+            <main>
+                <Sidebar />
+                <NewQuestion />
+            </main>
+            </>
+        )
+    }
 
     if (token) { 
         return expanded
@@ -48,7 +61,10 @@ export function App () {
                 <main>
                     <Sidebar />
                     <div className='questions'>
-                        <h2>Top Questions</h2>
+                        <div className="header">
+                            <h2>Top Questions</h2>
+                            <button className="ask-question" onClick={() => setAsking(true)}>Ask Question</button>
+                        </div>
                         {data.map((question, idx) => {
                         return (
                             <Question question={question} setExpanded={setExpanded} setSelectedQuestion={setSelectedQuestion} />
