@@ -4,6 +4,8 @@ import { Answers } from './Answers'
 export const QuestionDetails = (props) => {
   const { question, setExpanded } = props
 
+  console.log(question)
+
   return (
     <div className='question-details'>
       <h1>{question.question}</h1>
@@ -12,6 +14,7 @@ export const QuestionDetails = (props) => {
       <p>Favorited by: {question.favorited_by}</p>
       <p>{question.created_at}</p>
       <p>Tags: {question.tag}</p>
+      {/* question.answers && question.answers.map */}
       <Answers />
     </div>
   )

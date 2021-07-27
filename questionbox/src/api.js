@@ -1,121 +1,23 @@
 import axios from 'axios'
 
-const answers = [
-  {
-    id: '1',
-    text: 'stufffffff',
-    username: 'shaune',
-    approved: 'false',
-    favorited: 'false',
-    created_at: '0.00007 seconds ago'
-  },
-  {
-    id: '2',
-    text: 'whyd you do it like that',
-    username: 'roan',
-    approved: 'false',
-    favorited: 'false',
-    created_at: '3 days ago'
-  },
-  {
-    id: '3',
-    text: 'use this library instead duh',
-    username: 'dee',
-    approved: 'false',
-    favorited: 'false',
-    created_at: 'friday'
-  },
-  {
-    id: '4',
-    text: 'idk i dont use that',
-    username: 'emily',
-    approved: 'false',
-    favorited: 'false',
-    created_at: '54 years ago'
-  }
-]
-
-const questions = [
-  {
-    id: '1',
-    title: 'centering',
-    text: 'how do i center a div?',
-    username: 'roan',
-    created_at: '8 years ago',
-    favorited: 'false',
-    answers: answers
-  },
-  {
-    id: '2',
-    title: 'new here',
-    text: 'how do i post a question?',
-    username: 'emily',
-    created_at: 'tomorrow woah crazy',
-    favorited: 'false',
-    answers: answers
-  },
-  {
-    id: '3',
-    title: 'BSCode?',
-    text: 'which IDE should I use? I was thinking about the notes app.',
-    username: 'shaune',
-    created_at: 'today',
-    favorited: 'false',
-    answers: answers
-  },
-  {
-    id: '4',
-    title: 'IE4???',
-    text: 'how do I support Internet Explorer 4 in css?',
-    username: 'dee',
-    created_at: 'yesterday',
-    favorited: 'false',
-    answers: answers
-  },
-  {
-    id: '1',
-    title: 'centering',
-    text: 'how do i center a div?',
-    username: 'roan',
-    created_at: '8 years ago',
-    favorited: 'false',
-    answers: answers
-  },
-  {
-    id: '2',
-    title: 'new here',
-    text: 'how do i post a question?',
-    username: 'emily',
-    created_at: 'tomorrow woah crazy',
-    favorited: 'false',
-    answers: answers
-  },
-  {
-    id: '3',
-    title: 'BSCode?',
-    text: 'which IDE should I use? I was thinking about the notes app.',
-    username: 'shaune',
-    created_at: 'today',
-    favorited: 'false',
-    answers: answers
-  },
-  {
-    id: '4',
-    title: 'IE4???',
-    text: 'how do I support Internet Explorer 4 in css?',
-    username: 'dee',
-    created_at: 'yesterday',
-    favorited: 'false',
-    answers: answers
-  }
-]
 
 export function requestLogin (username, password) {
   return axios.post('https://team-kraken-questionbox.herokuapp.com/auth/token/login', {
     username: username,
     password: password,
   })
+}
 
+export function requestLogout(token) {
+    return axios.post('https://team-kraken-questionbox.herokuapp.com/auth/token/logout/', 
+    {},
+        {
+            headers: { 
+                Authorization: `Token ${token}`, 
+                "Content-Type": "application/json"
+            }
+        })
+    .then((response) => response)
 }
 
 export function requestUser (token, username) {
@@ -133,16 +35,6 @@ function getQuestionList(token) {
     }
 }
 
-function fakeAuthentication (username, password) {
-  return new Promise((resolve, reject) => {
-    if (username !== '' && password !== '') {
-      resolve({
-        auth_token: 'token123456789'
-      })
-    }
-    reject(new Error('authentication failed'))
-  })
-}
 
 function fakeUserRequest (token) {
   // here I am faking an api response that
@@ -151,70 +43,18 @@ function fakeUserRequest (token) {
     if (token) {
       resolve(
         // this is a fake user object
-        {
-          id: 1,
-          username: 'username',
-          // I am using a lirbary called dayjs that
-          // makes working with datetime in JS a litte simpler
-          created_at: '2021-07-22',
-          avatar_url: 'https://tinyurl.com/mwkjx4nh',
-          questions: [{
-            id: '1',
-            title: 'centering',
-            text: 'how do i center a div?',
-            username: 'roan',
-            created_at: '8 years ago',
-            favorited: 'false',
-            answers: answers
-          },
-          {
-            id: '2',
-            title: 'new here',
-            text: 'how do i post a question?',
-            username: 'emily',
-            created_at: 'tomorrow woah crazy',
-            favorited: 'false',
-            answers: answers
-          }],
-          answers: [{
-            id: '1',
-            text: 'stufffffff',
-            username: 'shaune',
-            approved: 'false',
-            favorited: 'false',
-            created_at: '0.00007 seconds ago'
-          },
-          {
-            id: '2',
-            text: 'whyd you do it like that',
-            username: 'roan',
-            approved: 'false',
-            favorited: 'false',
-            created_at: '3 days ago'
-          }]
-        })
+        )
     }
     reject(new Error('Authentication failed'))
   })
 }
 
-function fakeQuestionsRequest (token) {
-  return new Promise((resolve, reject) => {
-    if (token) {
-      console.log(token)
-      resolve(
-        questions
-      )
-    }
-    reject(new Error('authentication failed'))
-  })
-}
 
 function fakeQuestionDetail (token, id) {
   return new Promise((resolve, reject) => {
     if (token && id) {
       resolve({
-        question: questions[0]
+        
       })
     }
   })

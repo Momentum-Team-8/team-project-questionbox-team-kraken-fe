@@ -7,6 +7,7 @@ import { Sidebar } from './components/Sidebar'
 import { Login } from './components/Login'
 import { NewQuestion } from './components/NewQuestion'
 import { requestQuestions } from './api'
+import { requestLogout } from './api'
 
 export function App () {
   const [expanded, setExpanded] = useState(false)
@@ -28,7 +29,8 @@ export function App () {
     }
   }, [token])
 
-  const handleLogout = () => {
+  const handleLogout = (token) => {
+    requestLogout(token)
     setToken('')
   }
 
@@ -56,7 +58,7 @@ export function App () {
             </>
             : (
             <>
-                <h1 className='title'>QuestionBox</h1>
+                <h1 className='title'>QuestionBox<button className="logout" onClick={() => handleLogout(token)}>Logout</button></h1>
                 <main>
                     <Sidebar />
                     <div className='questions'>
@@ -70,7 +72,6 @@ export function App () {
                         )
                         })}
                     </div>
-                    <button className="logout" onClick={() => handleLogout()}>Logout</button>
                 </main>
             </>
         )

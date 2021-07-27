@@ -9,8 +9,6 @@ export const Login = ({ setAuthToken }) => {
   
     function handleSubmit (e) {
       e.preventDefault()
-      // here I am making a fake api call to
-      // authenticate my user
       requestLogin(username, password)
         .then((data) => {
           if (data && data.data.auth_token) {
