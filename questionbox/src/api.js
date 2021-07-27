@@ -113,9 +113,8 @@ const questions = [
 export function requestLogin (username, password) {
   return axios.post('https://team-kraken-questionbox.herokuapp.com/auth/token/login', {
     username: username,
-    password: password,
+    password: password
   })
-
 }
 
 export function requestUser (token, username) {
@@ -125,14 +124,22 @@ export function requestUser (token, username) {
 export function requestQuestions (token) {
   return getQuestionList(token)
 }
-
-function getQuestionList(token) {
-    if (token) {
-        return axios.get('https://team-kraken-questionbox.herokuapp.com/questions')
-        .then(res => res)
-    }
+export function requestAnswers (token) {
+  return getAnswers(token)
 }
 
+function getQuestionList (token) {
+  if (token) {
+    return axios.get('https://team-kraken-questionbox.herokuapp.com/questions')
+      .then(res => res)
+  }
+}
+function getAnswers (token) {
+  if (token) {
+    return axios.get('https://team-kraken-questionbox.herokuapp.com/answers')
+      .then(res => res)
+  }
+}
 function fakeAuthentication (username, password) {
   return new Promise((resolve, reject) => {
     if (username !== '' && password !== '') {

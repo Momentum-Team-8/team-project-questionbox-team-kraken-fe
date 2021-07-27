@@ -21,9 +21,9 @@ export function App () {
 
   useEffect(() => {
     if (token) {
-        requestQuestions(token)
+      requestQuestions(token)
         .then(data => {
-            setData(data.data)
+          setData(data.data)
         })
     }
   }, [token])
@@ -32,53 +32,52 @@ export function App () {
     setToken('')
   }
 
-
-    if (asking) {
-        return (
-            <>
+  if (asking) {
+    return (
+      <>
             <h1 className='title'>QuestionBox</h1>
             <main>
                 <Sidebar />
                 <NewQuestion />
-            </main>
-            </>
-        )
-    }
+              </main>
+          </>
+    )
+  }
 
-    if (token) { 
-        return expanded
-            ? <>
-            <h1 className='title'>QuestionBox</h1>
-            <main>
+  if (token) {
+    return expanded
+      ? <>
+        <h1 className='title'>QuestionBox</h1>
+        <main>
                 <Sidebar />
                 <QuestionDetails question={selectedQuestion} setExpanded={setExpanded} />
-            </main>
-            </>
-            : (
-            <>
+              </main>
+        </>
+      : (
+        <>
                 <h1 className='title'>QuestionBox</h1>
                 <main>
-                    <Sidebar />
-                    <div className='questions'>
-                        <div className="header">
-                            <h2>Top Questions</h2>
-                            <button className="ask-question" onClick={() => setAsking(true)}>Ask Question</button>
-                        </div>
-                        {data.map((question, idx) => {
+                <Sidebar />
+                <div className='questions'>
+                    <div className='header'>
+                        <h2>Top Questions</h2>
+                        <button className='ask-question' onClick={() => setAsking(true)}>Ask Question</button>
+                      </div>
+                    {data.map((question, idx) => {
                         return (
                             <Question question={question} setExpanded={setExpanded} setSelectedQuestion={setSelectedQuestion} />
                         )
-                        })}
-                    </div>
-                    <button className="logout" onClick={() => handleLogout()}>Logout</button>
-                </main>
-            </>
+                      })}
+                  </div>
+                <button className='logout' onClick={() => handleLogout()}>Logout</button>
+              </main>
+              </>
         )
-        } else {
-            return (
-                <Login setAuthToken={setAuthToken} />
-            )
-        }
+  } else {
+    return (
+      <Login setAuthToken={setAuthToken} />
+    )
+  }
 }
 
 export default App
