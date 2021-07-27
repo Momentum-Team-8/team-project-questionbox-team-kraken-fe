@@ -20,6 +20,10 @@ export function requestLogout(token) {
     .then((response) => response)
 }
 
+export function requestRegistration(username, email, password) {
+    
+}
+
 export function requestUser (token, username) {
   return fakeUserRequest(token, username)
 }
@@ -30,6 +34,19 @@ export function requestQuestions (token) {
 export function requestAnswers (token) {
   return getAnswers(token)
 }
+
+function getQuestionList (token) {
+    if (token) {
+      return axios.get('https://team-kraken-questionbox.herokuapp.com/questions')
+        .then(res => res)
+    }
+  }
+  function getAnswers (token) {
+    if (token) {
+      return axios.get('https://team-kraken-questionbox.herokuapp.com/answers')
+        .then(res => res)
+    }
+  }
 
 function fakeUserRequest (token) {
   // here I am faking an api response that
