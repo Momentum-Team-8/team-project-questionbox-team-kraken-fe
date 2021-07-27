@@ -4,7 +4,7 @@ import axios from 'axios'
 export function requestLogin (username, password) {
   return axios.post('https://team-kraken-questionbox.herokuapp.com/auth/token/login', {
     username: username,
-    password: password,
+    password: password
   })
 }
 
@@ -27,14 +27,9 @@ export function requestUser (token, username) {
 export function requestQuestions (token) {
   return getQuestionList(token)
 }
-
-function getQuestionList(token) {
-    if (token) {
-        return axios.get('https://team-kraken-questionbox.herokuapp.com/questions')
-        .then(res => res)
-    }
+export function requestAnswers (token) {
+  return getAnswers(token)
 }
-
 
 function fakeUserRequest (token) {
   // here I am faking an api response that

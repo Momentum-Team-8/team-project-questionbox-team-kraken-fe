@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { requestLogin } from '../api.js'
 
 export const Login = ({ setAuthToken }) => {
+
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState('')
@@ -52,7 +53,7 @@ export const Login = ({ setAuthToken }) => {
           </div>
         </form>
       </>
-    )
-  }
-  
-  export default Login
+  )
+}
+
+export default Login
