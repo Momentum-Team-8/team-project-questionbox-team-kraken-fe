@@ -20,18 +20,17 @@ export function App () {
   }
 
   useEffect(() => {
-
     if (token) {
         requestQuestions(token)
-    // this promise will extract the data from
-    // the api response
-      .then(data => {
-        setData(data)
-      })
+        .then(data => {
+            setData(data.data)
+        })
     }
-      // re-render the component if the username
-      // or token changes
   }, [token])
+
+  const handleLogout = () => {
+    setToken('')
+  }
 
 
     if (asking) {
@@ -71,6 +70,7 @@ export function App () {
                         )
                         })}
                     </div>
+                    <button className="logout" onClick={() => handleLogout()}>Logout</button>
                 </main>
             </>
         )

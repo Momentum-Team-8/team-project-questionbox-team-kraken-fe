@@ -13,8 +13,8 @@ export const Login = ({ setAuthToken }) => {
       // authenticate my user
       requestLogin(username, password)
         .then((data) => {
-          if (data && data.auth_token) {
-            setAuthToken(data.auth_token)
+          if (data && data.data.auth_token) {
+            setAuthToken(data.data.auth_token)
           }
         })
         .catch((error) => {
