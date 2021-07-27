@@ -27,12 +27,13 @@ main {
     padding-left: 20px;
 }
 
-.questions > h2 {
+.questions > .header {
     height: 100px;
     padding: 20px;
     border: 1px solid lightgray;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: #FDFFFC;
 }
 
@@ -108,3 +109,68 @@ main {
     height: 60;
   }
 
+.new-question-form {
+    padding: 20px;
+    border: 1px solid lightgray;
+    width: 60vw;
+    height: 100vh;
+    background-color: #FDFFFC;
+}
+
+.new-question-form > h3 {
+    margin-bottom: 50px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgray;
+    font-size: x-large;
+}
+
+.question-title {
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+    height: 100px;
+}
+
+.question-title > label {
+    margin-bottom: 10px;
+}
+
+.question-title > textarea {
+    outline: none;
+}
+
+.question-text {
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+    height: 300px;
+}
+
+.question-text > #body {
+    height: 400px;
+    margin-bottom: 50px;
+}
+
+.submit {
+    border: 1px solid black;
+    border-radius: 2px;
+    background-color: white;
+    padding: 10px;
+}
+
+.submit:hover {
+    background-color: rgb(233, 233, 233);
+    cursor: pointer;
+}
+
+.ask-question {
+    border: 1px solid black;
+    border-radius: 2px;
+    background-color: white;
+    padding: 10px;
+}
+
+.ask-question:hover {
+    background-color: rgb(233, 233, 233);
+    cursor: pointer;
+}
