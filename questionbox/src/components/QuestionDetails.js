@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import { Answers } from './Answers'
-import {Sidebar} from './Sidebar'
+import { Sidebar } from './Sidebar'
 
 export const QuestionDetails = (props) => {
   const { question, setExpanded } = props
 
   return (
     <>
-    <h1 className='title'>QuestionBox</h1>
-    <main>
+      <h1 className='title'>QuestionBox</h1>
+      <main>
         <Sidebar />
         <div className='question-details'>
         <h1>{question.question}</h1>
@@ -20,7 +20,7 @@ export const QuestionDetails = (props) => {
         {/* question.answers && question.answers.map */}
         <Answers />
         </div>
-    </main>
+      </main>
     </>
   )
 }

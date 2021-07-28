@@ -1,17 +1,15 @@
 import React, { useState } from 'react'
-import {Sidebar} from './Sidebar'
-import {Question} from './Question'
+import { Sidebar } from './Sidebar'
+import { Question } from './Question'
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom'
 
 export const QuestionList = (props) => {
-
-    const {setAsking, handleLogout, data, token, setExpanded, setSelectedQuestion} = props
-
+  const { setAsking, handleLogout, data, token, setExpanded, setSelectedQuestion } = props
 
     return (
         <>
@@ -36,3 +34,4 @@ export const QuestionList = (props) => {
             </>
     )
 }
+

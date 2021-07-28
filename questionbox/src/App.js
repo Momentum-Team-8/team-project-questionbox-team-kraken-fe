@@ -7,15 +7,14 @@ import { Sidebar } from './components/Sidebar'
 import { Login } from './components/Login'
 import { QuestionList } from './components/QuestionList'
 import { NewQuestion } from './components/NewQuestion'
-import { requestQuestions } from './api'
-import { requestLogout } from './api'
+import { requestQuestions, requestLogout } from './api'
 import { Profile } from './components/Profile'
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom'
 
 export function App () {
   const [expanded, setExpanded] = useState(false)
@@ -31,9 +30,9 @@ export function App () {
 
   useEffect(() => {
     if (token) {
-        requestQuestions(token)
+      requestQuestions(token)
         .then(data => {
-            setData(data.data)
+          setData(data.data)
         })
     }
   }, [token])
@@ -73,11 +72,11 @@ export function App () {
                     </Switch>
                 </Router>
         )
-        } else {
-            return (
-                <Login setAuthToken={setAuthToken} />
-            )
-        }
+  } else {
+    return (
+      <Login setAuthToken={setAuthToken} />
+    )
+  }
 }
 
 export default App

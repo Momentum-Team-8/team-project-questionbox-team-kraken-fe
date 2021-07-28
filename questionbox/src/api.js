@@ -1,6 +1,5 @@
 import axios from 'axios'
 
-
 export function requestLogin (username, password) {
   return axios.post('https://team-kraken-questionbox.herokuapp.com/auth/token/login', {
     username: username,
@@ -8,27 +7,27 @@ export function requestLogin (username, password) {
   })
 }
 
-export function requestLogout(token) {
-    return axios.post('https://team-kraken-questionbox.herokuapp.com/auth/token/logout/', 
+export function requestLogout (token) {
+  return axios.post('https://team-kraken-questionbox.herokuapp.com/auth/token/logout/',
     {},
-        {
-            headers: { 
-                Authorization: `Token ${token}`, 
-                "Content-Type": "application/json"
-            }
-        })
+    {
+      headers: {
+        Authorization: `Token ${token}`,
+        'Content-Type': 'application/json'
+      }
+    })
     .then((response) => response)
 }
 
-export function requestRegistration(username, email, password) {
-    return axios.post('https://team-kraken-questionbox.herokuapp.com/auth/users/',
+export function requestRegistration (username, email, password) {
+  return axios.post('https://team-kraken-questionbox.herokuapp.com/auth/users/',
     {
-        username: username,
-        email: email,
-        password: password
+      username: username,
+      email: email,
+      password: password
     },
     {}
-    )
+  )
     .then((response) => response)
 }
 
@@ -43,7 +42,6 @@ export function requestUserInfo(token) {
     .then((response) => response)
 }
 
-
 export function requestQuestions (token) {
   return getQuestionList(token)
 }
@@ -52,10 +50,9 @@ export function requestAnswers (token) {
 }
 
 function getQuestionList (token) {
-    if (token) {
-      return axios.get('https://team-kraken-questionbox.herokuapp.com/questions')
-        .then(res => res)
-    }
+  if (token) {
+    return axios.get('https://team-kraken-questionbox.herokuapp.com/questions')
+      .then(res => res)
   }
 
   function getAnswers (token) {
@@ -65,6 +62,7 @@ function getQuestionList (token) {
     }
   }
 
+
 function fakeUserRequest (token) {
   // here I am faking an api response that
   // gives me a user object
@@ -72,18 +70,17 @@ function fakeUserRequest (token) {
     if (token) {
       resolve(
         // this is a fake user object
-        )
+      )
     }
     reject(new Error('Authentication failed'))
   })
 }
 
-
 function fakeQuestionDetail (token, id) {
   return new Promise((resolve, reject) => {
     if (token && id) {
       resolve({
-        
+
       })
     }
   })

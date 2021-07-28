@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { requestRegistration } from '../api.js'
 import { useHistory } from 'react-router-dom'
-
 export const Register = (props) => {
     const {setRegister} = props
     const [username, setUsername] = useState('')
@@ -9,14 +8,13 @@ export const Register = (props) => {
     const [password, setPassword] = useState('')
     const history = useHistory()
 
-    function handleSubmit (event) {
-        event.preventDefault()
-        requestRegistration(username, email, password)
-        setUsername('')
-        setEmail('')
-        setPassword('')
-    }
-
+  function handleSubmit (event) {
+    event.preventDefault()
+    requestRegistration(username, email, password)
+    setUsername('')
+    setEmail('')
+    setPassword('')
+  }
     return (
         <>
         <h1 className='title'>QuestionBox<button className="logout" onClick={() => setRegister(false)}>Log in</button></h1>
@@ -62,3 +60,4 @@ export const Register = (props) => {
         </>
     )
 }
+
