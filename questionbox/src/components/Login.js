@@ -42,7 +42,7 @@ export const Login = ({ setAuthToken }) => {
                     <input
                         className='input'
                         type='text'
-                        placeholder='email@domain.com or janedoge123'
+                        placeholder='janedoge123'
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                     />
