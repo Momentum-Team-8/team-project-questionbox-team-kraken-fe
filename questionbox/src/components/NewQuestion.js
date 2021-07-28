@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Sidebar } from './Sidebar'
 
 export const NewQuestion = () => {
   const [text, setText] = useState('')
@@ -11,6 +12,9 @@ export const NewQuestion = () => {
   }
   return (
     <>
+    <h1 className='title'>QuestionBox</h1>
+    <main>
+    <Sidebar />
       <form className='new-question-form'>
         <h3>Ask a question...</h3>
         <div className='question-title'>
@@ -34,6 +38,7 @@ export const NewQuestion = () => {
           <input className='submit' type='submit' value='Submit' />
         </div>
       </form>
+      </main>
     </>
   )
 }

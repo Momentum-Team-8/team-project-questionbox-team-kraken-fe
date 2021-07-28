@@ -38,25 +38,14 @@ export function App () {
 
     if (asking) {
         return (
-            <>
-            <h1 className='title'>QuestionBox</h1>
-            <main>
-                <Sidebar />
-                <NewQuestion />
-            </main>
-            </>
+            <NewQuestion />
         )
     }
 
     if (token) { 
         return expanded
-            ? <>
-            <h1 className='title'>QuestionBox</h1>
-            <main>
-                <Sidebar />
+            ?
                 <QuestionDetails question={selectedQuestion} setExpanded={setExpanded} />
-            </main>
-            </>
             : (
                 <QuestionList handleLogout={handleLogout} setAsking={setAsking} data={data} token={token} setExpanded={setExpanded} setSelectedQuestion={setSelectedQuestion}/>
         )
