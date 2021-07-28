@@ -19,25 +19,30 @@ export const Register = () => {
     return (
         <>
         <h1 className='title'>QuestionBox</h1>
-        <main>
+        <div className="login-form">
             <h2>Create an Account</h2>
             <form className='form' onSubmit={handleSubmit}>
-                <label className='label'>Username</label>
-                <input
-                    className='input'
-                    type='text'
-                    placeholder='janedoge123'
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-                <label className='label'>Email</label>
-                <input
-                    className='input'
-                    type='text'
-                    placeholder="janedoge@gmail.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
+                <div className="username">
+                    <label className='label'>Username</label>
+                    <input
+                        className='input'
+                        type='text'
+                        placeholder='janedoge123'
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                </div>
+                <div className="username">
+                    <label className='label'>Email</label>
+                    <input
+                        className='input'
+                        type='text'
+                        placeholder="janedoge@gmail.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                </div>
+                <div className="password">
                 <label className='label'>Password</label>
                 <input
                     className='input'
@@ -45,13 +50,14 @@ export const Register = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
+                </div>
                 <button
-                className=''
+                className='login-button'
                 type='submit'
-                >create account
+                >Register
                 </button>
             </form>
-        </main>
+        </div>
         </>
     )
 }

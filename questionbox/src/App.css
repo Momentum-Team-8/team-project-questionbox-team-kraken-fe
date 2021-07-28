@@ -198,3 +198,79 @@ margin: 0px;
 height: 400px; 
 width: 600px;
 }
+
+.login-form {
+    border-left: 30vw solid lightgray;
+    border-right: 30vw solid lightgray;
+    border-bottom: 10vh solid lightgray;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form > .form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form > .form > .username {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.login-form > .form > .password {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.login-form > .form > .username > label {
+    margin-right: 10px;
+} 
+
+.login-form > .form > .password > label {
+    margin-right: 10px;
+} 
+
+.login-form > .form > #form-buttons {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    line-height: 70px;
+}
+
+.login-button {
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid rgb(131, 131, 131);
+    background-color: white;
+    margin-bottom: 100px;
+}
+
+.login-button:hover {
+    background-color: rgb(233, 233, 233);
+    cursor: pointer;
+}
+
+.register-button {
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid rgb(131, 131, 131);
+    background-color: white;
+}
+
+.register-button:hover {
+    background-color: rgb(233, 233, 233);
+    cursor: pointer;
+}
