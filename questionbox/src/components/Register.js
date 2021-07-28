@@ -52,7 +52,7 @@ export const Register = () => {
                 />
                 </div>
                 <button
-                className='login-button'
+                className='register-button'
                 type='submit'
                 >Register
                 </button>
