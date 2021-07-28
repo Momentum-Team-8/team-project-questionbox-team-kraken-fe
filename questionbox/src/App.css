@@ -276,3 +276,19 @@ width: 600px;
     background-color: rgb(233, 233, 233);
     cursor: pointer;
 }
+
+.profile {
+    min-height: 90vh;
+    max-height: fit-content;
+}
+
+.profile > h2 {
+    margin-bottom: 50px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+} 
+
+.profile > .asked-questions {
+    margin-bottom: 50px;
+}

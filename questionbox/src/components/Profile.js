@@ -11,6 +11,7 @@ import { AnswerDetail } from './AnswerDetail'
 export const Profile = (props) => {
     const {token, handleLogout} = props
     const [user, setUser] = useState(null)
+    const [username, setUsername] = useState('')
     const [questions, setQuestions] = useState([])
     const [answers, setAnswers] = useState([])
 
@@ -19,6 +20,7 @@ export const Profile = (props) => {
         requestUserInfo(token)
         .then(data => {
             setUser(data.data.id)
+            setUsername(data.data.username)
         })
         requestQuestions(token)
         .then(data => {
@@ -38,17 +40,20 @@ export const Profile = (props) => {
         <h1 className='title'>QuestionBox<button className="logout" onClick={() => handleLogout(token)}>Logout</button></h1>
         <main>
             <Sidebar />
-            <div className='questions'>
-                <h2>Profile</h2>
+            <div className='profile'>
+                <h2>Profile<h3>{username}</h3></h2>
+                
 
-                <h3>Asked Questions: </h3>
-                {questions.map((question, idx) => {
-                    if (question.user === user) {
-                        return (
-                            <Question question={question} />
-                        )
-                    }
-                })}
+                <div className="asked-questions">
+                    <h3>Asked Questions: </h3>
+                    {questions.map((question, idx) => {
+                        if (question.user === user) {
+                            return (
+                                <Question question={question} />
+                            )
+                        }
+                    })}
+                </div>
                 <h3>Given Answers</h3>
                 {answers.map((answer, idx) => {
                     if (answer.user === user) {

@@ -13,11 +13,6 @@ import {
 
 export const SidebarData = [
   {
-    title: 'Profile',
-    icon: <AccountBoxIcon fontSize='large' />,
-    link: <Link to='/Profile'></Link>
-  },
-  {
     title: 'Home',
     icon: <HomeIcon fontSize='large' />,
     link: <Link to='/'></Link>
