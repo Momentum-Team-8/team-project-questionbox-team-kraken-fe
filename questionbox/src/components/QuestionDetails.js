@@ -5,8 +5,6 @@ import {Sidebar} from './Sidebar'
 export const QuestionDetails = (props) => {
   const { question, setExpanded } = props
 
-  console.log(question)
-
   return (
     <>
     <h1 className='title'>QuestionBox</h1>

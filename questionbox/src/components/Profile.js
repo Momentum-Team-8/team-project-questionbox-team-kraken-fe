@@ -3,7 +3,9 @@ import { useHistory } from 'react-router-dom'
 import { requestUserInfo } from '../api'
 import { requestQuestions } from '../api'
 import { requestAnswers } from '../api'
-import {Sidebar} from './Sidebar'
+import { Sidebar } from './Sidebar'
+import { Question } from './Question.js'
+import { AnswerDetail } from './AnswerDetail'
 
 
 export const Profile = (props) => {
@@ -38,6 +40,23 @@ export const Profile = (props) => {
             <Sidebar />
             <div className='questions'>
                 <h2>Profile</h2>
+
+                <h3>Asked Questions: </h3>
+                {questions.map((question, idx) => {
+                    if (question.user === user) {
+                        return (
+                            <Question question={question} />
+                        )
+                    }
+                })}
+                <h3>Given Answers</h3>
+                {answers.map((answer, idx) => {
+                    if (answer.user === user) {
+                        return (
+                            <AnswerDetail answer={answer} />
+                        )
+                    }
+                })}
             </div>
         </main>
     </>
