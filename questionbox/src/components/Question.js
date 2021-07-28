@@ -10,7 +10,7 @@ export const Question = (props) => {
 
   return (
     <div className='question-card'>
-      <h2 onClick={() => seeDetails(question)}>{question.question}</h2>
+      <h2 onClick={() => seeDetails(question)}>{question.title}</h2>
       <p>{question.user}</p>
       <p>{question.created_at}</p>
     </div>

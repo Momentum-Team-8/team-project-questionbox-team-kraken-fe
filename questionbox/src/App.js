@@ -7,14 +7,14 @@ import { Sidebar } from './components/Sidebar'
 import { Login } from './components/Login'
 import { QuestionList } from './components/QuestionList'
 import { NewQuestion } from './components/NewQuestion'
-import { requestQuestions } from './api'
-import { requestLogout } from './api'
+import { requestQuestions, requestLogout } from './api'
+
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom'
 
 export function App () {
   const [expanded, setExpanded] = useState(false)
@@ -29,9 +29,9 @@ export function App () {
 
   useEffect(() => {
     if (token) {
-        requestQuestions(token)
+      requestQuestions(token)
         .then(data => {
-            setData(data.data)
+          setData(data.data)
         })
     }
   }, [token])
@@ -41,33 +41,31 @@ export function App () {
     setToken('')
   }
 
+  if (asking) {
+    return (
+      <Router>
+        <Switch>
+          <Route path='/NewQuestion'>
+            <NewQuestion />
+          </Route>
+        </Switch>
+      </Router>
+    )
+  }
 
-    if (asking) {
-        return (
-            <Router>
-                <Switch>
-                    <Route path="/NewQuestion">
-                        <NewQuestion />
-                    </Route>
-                </Switch>
-            </Router>
+  if (token) {
+    return expanded
+      ? <QuestionDetails question={selectedQuestion} setExpanded={setExpanded} />
+      : (
+        <Router>
+          <QuestionList handleLogout={handleLogout} setAsking={setAsking} data={data} token={token} setExpanded={setExpanded} setSelectedQuestion={setSelectedQuestion} />
+        </Router>
         )
-    }
-
-    if (token) { 
-        return expanded
-            ?
-                <QuestionDetails question={selectedQuestion} setExpanded={setExpanded} />
-            : (
-                <Router>
-                    <QuestionList handleLogout={handleLogout} setAsking={setAsking} data={data} token={token} setExpanded={setExpanded} setSelectedQuestion={setSelectedQuestion}/>
-                </Router>
-        )
-        } else {
-            return (
-                <Login setAuthToken={setAuthToken} />
-            )
-        }
+  } else {
+    return (
+      <Login setAuthToken={setAuthToken} />
+    )
+  }
 }
 
 export default App
