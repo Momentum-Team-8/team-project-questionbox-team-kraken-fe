@@ -54,7 +54,7 @@ export const Register = () => {
                 <button
                 className='login-button'
                 type='submit'
-                >create account
+                >Register
                 </button>
             </form>
         </div>
