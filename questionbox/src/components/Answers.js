@@ -21,7 +21,7 @@ export const Answers = () => {
         },
         {
           headers: {
-            Authorization: 'Token 9254c4f648b382b57739d16016fcc50ba51c2dbc',
+            Authorization: 'Token 59ac8abecb9731d8e93b3554abb70a7dff86defb',
             'Content-Type': 'application/json'
           }
         }

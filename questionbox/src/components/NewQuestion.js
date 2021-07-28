@@ -20,12 +20,12 @@ export const NewQuestion = () => {
       .post(
         'https://team-kraken-questionbox.herokuapp.com/questions/create/',
         {
-          question: title,
-          text: text
+          title: title,
+          question: text
         },
         {
           headers: {
-            Authorization: 'Token b54d8237813117adcf8aadc88ef79b0252557812',
+            Authorization: 'Token f153b3a59878f1df3eecdd96e1a50bf5efddc43d',
             'Content-Type': 'application/json'
           }
         }
