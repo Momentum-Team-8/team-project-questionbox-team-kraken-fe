@@ -9,6 +9,7 @@ import { QuestionList } from './components/QuestionList'
 import { NewQuestion } from './components/NewQuestion'
 import { requestQuestions } from './api'
 import { requestLogout } from './api'
+import { Profile } from './components/Profile'
 import {
     BrowserRouter as Router,
     Switch,
@@ -22,6 +23,7 @@ export function App () {
   const [data, setData] = useState([])
   const [token, setToken] = useLocalStorageState('token', '')
   const [asking, setAsking] = useState(false)
+  const [profile, setProfile] = useState(false)
 
   function setAuthToken (token) {
     setToken(token)
@@ -40,7 +42,6 @@ export function App () {
     requestLogout(token)
     setToken('')
   }
-
 
     if (asking) {
         return (
@@ -63,6 +64,9 @@ export function App () {
             : (
                 <Router>
                     <Switch>
+                        <Route path="/Profile">
+                            <Profile token={token} handleLogout={handleLogout}/>
+                        </Route>
                         <Route path="/">
                             <QuestionList handleLogout={handleLogout} setAsking={setAsking} data={data} token={token} setExpanded={setExpanded} setSelectedQuestion={setSelectedQuestion}/>
                         </Route>

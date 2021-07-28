@@ -15,7 +15,7 @@ export const SidebarData = [
   {
     title: 'Profile',
     icon: <AccountBoxIcon fontSize='large' />,
-    link: '/home'
+    link: <Link to='/Profile'></Link>
   },
   {
     title: 'Home',
@@ -32,7 +32,7 @@ export const SidebarData = [
   {
     title: 'Tags',
     icon: <LabelImportantTwoToneIcon fontSize='large' />,
-    link: '/home'
+    link: <Link to='/'></Link>
   }
 
 ]

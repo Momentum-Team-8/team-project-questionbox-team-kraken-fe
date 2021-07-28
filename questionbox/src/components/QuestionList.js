@@ -15,7 +15,10 @@ export const QuestionList = (props) => {
 
     return (
         <>
-                <h1 className='title'>QuestionBox<button className="logout" onClick={() => handleLogout(token)}>Logout</button></h1>
+                <h1 className='title'>QuestionBox
+                <Link to='/Profile'><button className="logout">Profile</button></Link>
+                <button className="logout" onClick={() => handleLogout(token)}>Logout</button>
+                </h1>
                 <main>
                     <Sidebar />
                     <div className='questions'>
