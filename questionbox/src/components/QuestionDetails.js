@@ -5,8 +5,6 @@ import {Sidebar} from './Sidebar'
 export const QuestionDetails = (props) => {
   const { question, setExpanded } = props
 
-  console.log(question)
-
   return (
     <>
     <h1 className='title'>QuestionBox</h1>
@@ -18,7 +16,7 @@ export const QuestionDetails = (props) => {
         <p>User: {question.user}</p>
         <p>Favorited by: {question.favorited_by}</p>
         <p>{question.created_at}</p>
-        <p>Tags: {question.tag}</p>
+        <p>Tags: '{question.tag}'</p>
         {/* question.answers && question.answers.map */}
         <Answers />
         </div>
