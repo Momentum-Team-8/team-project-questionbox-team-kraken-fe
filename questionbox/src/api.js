@@ -21,12 +21,17 @@ export function requestLogout(token) {
 }
 
 export function requestRegistration(username, email, password) {
-    
+    return axios.post('https://team-kraken-questionbox.herokuapp.com/auth/users/',
+    {
+        username: username,
+        email: email,
+        password: password
+    },
+    {}
+    )
+    .then((response) => response)
 }
 
-export function requestUser (token, username) {
-  return fakeUserRequest(token, username)
-}
 
 export function requestQuestions (token) {
   return getQuestionList(token)
