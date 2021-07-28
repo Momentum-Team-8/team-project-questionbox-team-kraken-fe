@@ -5,9 +5,16 @@ import { Question } from './components/Question.js'
 import { QuestionDetails } from './components/QuestionDetails'
 import { Sidebar } from './components/Sidebar'
 import { Login } from './components/Login'
+import { QuestionList } from './components/QuestionList'
 import { NewQuestion } from './components/NewQuestion'
 import { requestQuestions } from './api'
 import { requestLogout } from './api'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 export function App () {
   const [expanded, setExpanded] = useState(false)
@@ -37,43 +44,24 @@ export function App () {
 
     if (asking) {
         return (
-            <>
-            <h1 className='title'>QuestionBox</h1>
-            <main>
-                <Sidebar />
-                <NewQuestion />
-            </main>
-            </>
+            <Router>
+                <Switch>
+                    <Route path="/NewQuestion">
+                        <NewQuestion />
+                    </Route>
+                </Switch>
+            </Router>
         )
     }
 
     if (token) { 
         return expanded
-            ? <>
-            <h1 className='title'>QuestionBox</h1>
-            <main>
-                <Sidebar />
+            ?
                 <QuestionDetails question={selectedQuestion} setExpanded={setExpanded} />
-            </main>
-            </>
             : (
-            <>
-                <h1 className='title'>QuestionBox<button className="logout" onClick={() => handleLogout(token)}>Logout</button></h1>
-                <main>
-                    <Sidebar />
-                    <div className='questions'>
-                        <div className="header">
-                            <h2>Top Questions</h2>
-                            <button className="ask-question" onClick={() => setAsking(true)}>Ask Question</button>
-                        </div>
-                        {data.map((question, idx) => {
-                        return (
-                            <Question question={question} setExpanded={setExpanded} setSelectedQuestion={setSelectedQuestion} />
-                        )
-                        })}
-                    </div>
-                </main>
-            </>
+                <Router>
+                    <QuestionList handleLogout={handleLogout} setAsking={setAsking} data={data} token={token} setExpanded={setExpanded} setSelectedQuestion={setSelectedQuestion}/>
+                </Router>
         )
         } else {
             return (
