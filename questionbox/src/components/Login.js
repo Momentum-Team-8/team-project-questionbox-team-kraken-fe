@@ -26,7 +26,7 @@ export const Login = ({ setAuthToken }) => {
 
     if (register) {
         return (
-            <Register />
+            <Register setRegister={setRegister} />
         )
     }
     return (

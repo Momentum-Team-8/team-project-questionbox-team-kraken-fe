@@ -253,7 +253,7 @@ width: 600px;
 .login-button {
     padding: 10px;
     border-radius: 2px;
-    width: 100%;
+    width: 50%;
     border: 1px solid rgb(131, 131, 131);
     background-color: rgb(243, 243, 243);
     margin-bottom: 100px;
@@ -267,7 +267,7 @@ width: 600px;
 .register-button {
     padding: 10px;
     border-radius: 2px;
-    width: 50%;
+    width: 100%;
     border: 1px solid rgb(131, 131, 131);
     background-color: rgb(243, 243, 243);
 }
