@@ -34,35 +34,42 @@ export const Login = ({ setAuthToken }) => {
         {errors &&
           <p>{errors}</p>}
         <h1 className='title'>QuestionBox</h1>
-        <main>
+        <div className="login-form">
+            <h2 className="login-header">Login</h2>
             <form className='form' onSubmit={handleSubmit}>
-            <label className='label'>Username</label>
-            <input
-                className='input'
-                type='text'
-                placeholder='email@domain.com or janedoge123'
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-            />
-            <label className='label'>Password</label>
-            <input
-                className='input'
-                type='password'
-                // using state to pass a value to this attribute
-                // makes this a controlled component
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-            <div id='form-buttons'>
-                <button
-                className=''
-                type='submit'
-                >Login
-                </button>
-                <span>New to QuestionBox? &nbsp; <button onClick={() => setRegister(true)}>Register Now!</button></span>
-            </div>
+                <div className="username">
+                    <label className='label'>Username</label>
+                    <input
+                        className='input'
+                        type='text'
+                        placeholder='email@domain.com or janedoge123'
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                </div>
+                <div className="password">
+                    <label className='label'>Password</label>
+                    <input
+                        className='input'
+                        type='password'
+                        // using state to pass a value to this attribute
+                        // makes this a controlled component
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </div>
+                
+                <div id='form-buttons'>
+                    <button
+                        className='login-button'
+                        type='submit'
+                        >Login
+                    </button>
+                    <p>New to QuestionBox?</p>
+                    <button className='register-button' onClick={() => setRegister(true)}>Register Now!</button>
+                </div>
             </form>
-        </main>
+        </div>
       </>
   )
 }
