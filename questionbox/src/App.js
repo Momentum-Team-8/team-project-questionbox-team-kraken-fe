@@ -9,6 +9,12 @@ import { QuestionList } from './components/QuestionList'
 import { NewQuestion } from './components/NewQuestion'
 import { requestQuestions } from './api'
 import { requestLogout } from './api'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 export function App () {
   const [expanded, setExpanded] = useState(false)
@@ -38,7 +44,13 @@ export function App () {
 
     if (asking) {
         return (
-            <NewQuestion />
+            <Router>
+                <Switch>
+                    <Route path="/NewQuestion">
+                        <NewQuestion />
+                    </Route>
+                </Switch>
+            </Router>
         )
     }
 
@@ -47,7 +59,9 @@ export function App () {
             ?
                 <QuestionDetails question={selectedQuestion} setExpanded={setExpanded} />
             : (
-                <QuestionList handleLogout={handleLogout} setAsking={setAsking} data={data} token={token} setExpanded={setExpanded} setSelectedQuestion={setSelectedQuestion}/>
+                <Router>
+                    <QuestionList handleLogout={handleLogout} setAsking={setAsking} data={data} token={token} setExpanded={setExpanded} setSelectedQuestion={setSelectedQuestion}/>
+                </Router>
         )
         } else {
             return (

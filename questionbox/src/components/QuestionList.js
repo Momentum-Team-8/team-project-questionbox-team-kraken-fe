@@ -1,6 +1,13 @@
 import React, { useState } from 'react'
 import {Sidebar} from './Sidebar'
 import {Question} from './Question'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
+
 export const QuestionList = (props) => {
 
     const {setAsking, handleLogout, data, token, setExpanded, setSelectedQuestion} = props
@@ -14,7 +21,7 @@ export const QuestionList = (props) => {
                     <div className='questions'>
                         <div className="header">
                             <h2>Top Questions</h2>
-                            <button className="ask-question" onClick={() => setAsking(true)}>Ask Question</button>
+                           <Link to="/NewQuestion"> <button className="ask-question" onClick={() => setAsking(true)}>Ask Question</button></Link>
                         </div>
                         {data.map((question, idx) => {
                         return (
