@@ -21,8 +21,6 @@ export const Login = ({ setAuthToken }) => {
         setErrors(error.message)
       })
   }
-
-  if (register) {
     return (
       <Register />
     )

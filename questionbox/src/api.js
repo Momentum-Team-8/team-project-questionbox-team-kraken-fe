@@ -31,6 +31,17 @@ export function requestRegistration (username, email, password) {
     .then((response) => response)
 }
 
+export function requestUserInfo(token) {
+    return axios.get('https://team-kraken-questionbox.herokuapp.com/auth/users/me',
+    {
+        headers: { 
+            Authorization: `Token ${token}`, 
+            "Content-Type": "application/json"
+        }
+    })
+    .then((response) => response)
+}
+
 export function requestQuestions (token) {
   return getQuestionList(token)
 }
@@ -43,13 +54,14 @@ function getQuestionList (token) {
     return axios.get('https://team-kraken-questionbox.herokuapp.com/questions')
       .then(res => res)
   }
-}
-function getAnswers (token) {
-  if (token) {
-    return axios.get('https://team-kraken-questionbox.herokuapp.com/answers')
-      .then(res => res)
+
+  function getAnswers (token) {
+    if (token) {
+      return axios.get('https://team-kraken-questionbox.herokuapp.com/answers')
+        .then(res => res)
+    }
   }
-}
+
 
 function fakeUserRequest (token) {
   // here I am faking an api response that
