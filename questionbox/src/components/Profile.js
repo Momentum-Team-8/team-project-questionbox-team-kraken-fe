@@ -8,7 +8,6 @@ import { Sidebar } from './Sidebar'
 import { Question } from './Question.js'
 import { AnswerDetail } from './AnswerDetail'
 
-
 export const Profile = (props) => {
     const { token, handleLogout, setExpanded, setSelectedQuestion} = props
     const [user, setUser] = useState(null)
@@ -70,6 +69,7 @@ export const Profile = (props) => {
                 })}
             </div>
         </main>
+
     </>
-    )
+  )
 }

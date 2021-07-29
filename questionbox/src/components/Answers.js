@@ -1,10 +1,12 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useHistory, useParams } from 'react-router-dom'
 
-export const Answers = () => {
+export const Answers = (props) => {
   const [answer, setAnswer] = useState('')
   const history = useHistory()
+  const { id } = useParams()
+  const { token, question } = props
 
   const handleChange = (event) => {
     setAnswer(event.target.value)
@@ -17,11 +19,11 @@ export const Answers = () => {
         'https://team-kraken-questionbox.herokuapp.com/answers/create/',
         {
           answer: answer,
-          question: 1
+          question: question.id
         },
         {
           headers: {
-            Authorization: 'Token 5b15adb8d675a85cf793afbbe739f9d8886db83c',
+            Authorization: `Token ${token}`,
             'Content-Type': 'application/json'
           }
         }

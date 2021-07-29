@@ -42,17 +42,18 @@ export function App () {
     setToken('')
   }
 
-    if (asking) {
-        return (
-            <Router>
-                <Switch>
-                    <Route path="/NewQuestion">
-                        <NewQuestion />
-                    </Route>
-                </Switch>
-            </Router>
-        )
-    }
+  if (asking) {
+    return (
+      <Router>
+        <Switch>
+          <Route path='/NewQuestion'>
+            <NewQuestion token={token} />
+          </Route>
+        </Switch>
+      </Router>
+    )
+  }
+
 
     if (token) { 
         return expanded
@@ -71,6 +72,7 @@ export function App () {
                         </Route>
                     </Switch>
                 </Router>
+
         )
   } else {
     return (
