@@ -47,7 +47,7 @@ export function App () {
       <Router>
         <Switch>
           <Route path='/NewQuestion'>
-            <NewQuestion />
+            <NewQuestion token={token} />
           </Route>
         </Switch>
       </Router>
@@ -58,7 +58,7 @@ export function App () {
     return expanded
       ? <Router>
         <QuestionDetails question={selectedQuestion} setExpanded={setExpanded} token={token} />
-      </Router>
+        </Router>
       : (
         <Router>
           <Switch>
