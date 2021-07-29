@@ -54,22 +54,25 @@ export function App () {
     )
   }
 
-  if (token) {
-    return expanded
-      ? <Router>
-        <QuestionDetails question={selectedQuestion} setExpanded={setExpanded} token={token} />
-        </Router>
-      : (
-        <Router>
-          <Switch>
-            <Route path='/Profile'>
-              <Profile token={token} handleLogout={handleLogout} />
-            </Route>
-            <Route path='/'>
-              <QuestionList handleLogout={handleLogout} setAsking={setAsking} data={data} token={token} setExpanded={setExpanded} setSelectedQuestion={setSelectedQuestion} />
-            </Route>
-          </Switch>
-        </Router>
+
+    if (token) { 
+        return expanded
+            ?   
+                <Router>
+                    <QuestionDetails question={selectedQuestion} setExpanded={setExpanded} />
+                </Router>
+            : (
+                <Router>
+                    <Switch>
+                        <Route path="/Profile">
+                            <Profile token={token} selectedQuestion={selectedQuestion} handleLogout={handleLogout} setExpanded={setExpanded} setSelectedQuestion={setSelectedQuestion}/>
+                        </Route>
+                        <Route path="/">
+                            <QuestionList handleLogout={handleLogout} setAsking={setAsking} data={data} token={token} setExpanded={setExpanded} setSelectedQuestion={setSelectedQuestion}/>
+                        </Route>
+                    </Switch>
+                </Router>
+
         )
   } else {
     return (

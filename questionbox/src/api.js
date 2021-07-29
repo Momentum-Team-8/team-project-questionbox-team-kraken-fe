@@ -60,3 +60,10 @@ function getQuestionList (token) {
       .then(res => res)
   }
 }
+
+export function deleteQuestion (token, id) {
+    if (token) {
+        return axios.delete(`https://team-kraken-questionbox.herokuapp.com/questions/${id}/delete`)
+        .then((response) => response)
+    }
+}

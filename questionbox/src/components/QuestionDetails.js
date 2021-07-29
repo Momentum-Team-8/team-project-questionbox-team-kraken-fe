@@ -20,6 +20,7 @@ export const QuestionDetails = (props) => {
       <main>
         <Sidebar />
         <div className='question-details'>
+
           <h1>{question.question}</h1>
           <p className='text'>{question.text}</p>
           <p>User: {question.user}</p>

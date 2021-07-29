@@ -11,26 +11,28 @@ import {
 export const QuestionList = (props) => {
   const { setAsking, handleLogout, data, token, setExpanded, setSelectedQuestion } = props
 
-  return (
-    <>
-      <h1 className='title'>QuestionBox
-        <Link to='/Profile'><button className='logout'>Profile</button></Link>
-        <button className='logout' onClick={() => handleLogout(token)}>Logout</button>
-      </h1>
-      <main>
-        <Sidebar />
-        <div className='questions'>
-          <div className='header'>
-            <h2>Top Questions</h2>
-            <Link to='/NewQuestion'> <button className='ask-question' onClick={() => setAsking(true)}>Ask Question</button></Link>
-          </div>
-          {data.map((question, idx) => {
-            return (
-              <Question question={question} setExpanded={setExpanded} setSelectedQuestion={setSelectedQuestion} />
-            )
-          })}
-        </div>
-      </main>
-    </>
-  )
+    return (
+        <>
+                <h1 className='title'>QuestionBox
+                <div className="inside-header">
+                    <Link to='/Profile'><button className="profile-button">Profile</button></Link>
+                    <button className="logout" onClick={() => handleLogout(token)}>Logout</button>
+                </div>
+                </h1>
+                <main>
+                    <Sidebar />
+                    <div className='questions'>
+                        <div className="header">
+                            <h2>Top Questions</h2>
+                           <Link to="/NewQuestion"> <button className="ask-question" onClick={() => setAsking(true)}>Ask Question</button></Link>
+                        </div>
+                        {data.map((question, idx) => {
+                        return (
+                            <Question question={question} setExpanded={setExpanded} setSelectedQuestion={setSelectedQuestion} />
+                        )
+                        })}
+                    </div>
+                </main>
+            </>
+    )
 }
