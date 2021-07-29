@@ -14,7 +14,7 @@ export const NewQuestion = () => {
     setTitle(event.target.value)
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event, token) => {
     alert('Your question has been submitted!')
     axios
       .post(
@@ -25,7 +25,7 @@ export const NewQuestion = () => {
         },
         {
           headers: {
-            Authorization: 'Token f153b3a59878f1df3eecdd96e1a50bf5efddc43d',
+            Authorization: `Token ${token}`,
             'Content-Type': 'application/json'
           }
         }
