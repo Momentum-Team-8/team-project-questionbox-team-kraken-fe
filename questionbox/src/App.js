@@ -64,7 +64,7 @@ export function App () {
                 <Router>
                     <Switch>
                         <Route path="/Profile">
-                            <Profile token={token} handleLogout={handleLogout}/>
+                            <Profile token={token} selectedQuestion={selectedQuestion} handleLogout={handleLogout} setExpanded={setExpanded} setSelectedQuestion={setSelectedQuestion}/>
                         </Route>
                         <Route path="/">
                             <QuestionList handleLogout={handleLogout} setAsking={setAsking} data={data} token={token} setExpanded={setExpanded} setSelectedQuestion={setSelectedQuestion}/>
