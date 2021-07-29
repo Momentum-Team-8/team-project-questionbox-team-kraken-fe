@@ -6,7 +6,7 @@ export const NewQuestion = (props) => {
   const [text, setText] = useState('')
   const [title, setTitle] = useState('')
   const history = useHistory()
-  const { token, handleLogout } = props
+  const { token, handleLogout, setAsking } = props
 
   const handleChange = (event) => {
     setText(event.target.value)

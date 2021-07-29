@@ -17,7 +17,7 @@ export const Register = (props) => {
   }
   return (
     <>
-      <h1 className='title'>QuestionBox<button className='logout' onClick={() => setRegister(false)}>Log in</button></h1>
+      <h1 className='title'>QuestionBox<button className='logout' onClick={setRegister(false)}>Log in</button></h1>
       <div className='login-form'>
         <h2>Create an Account</h2>
         <form className='form' onSubmit={handleSubmit}>

@@ -47,7 +47,7 @@ export function App () {
       <Router>
         <Switch>
           <Route path='/NewQuestion'>
-            <NewQuestion token={token} />
+            <NewQuestion token={token} setAsking={setAsking} />
           </Route>
         </Switch>
       </Router>
