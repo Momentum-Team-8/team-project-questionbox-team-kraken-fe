@@ -14,7 +14,7 @@ export const SidebarData = [
   {
     title: 'Home',
     icon: <HomeIcon fontSize='large' />,
-    link: <Link to='/' />
+    link: '/'
   },
 
   {
