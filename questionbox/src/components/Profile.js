@@ -10,7 +10,7 @@ import { AnswerDetail } from './AnswerDetail'
 
 
 export const Profile = (props) => {
-    const {token, handleLogout} = props
+    const { token, handleLogout } = props
     const [user, setUser] = useState(null)
     const [username, setUsername] = useState('')
     const [questions, setQuestions] = useState([])
@@ -31,13 +31,10 @@ export const Profile = (props) => {
         .then(data => {
             setAnswers(data.data)
         })
-    }, [questions])
+    }, [])
 
-    const d = (id) => {
+    const d = (token, id) => {
         deleteQuestion(token, id)
-        .then (data => {
-            console.log(data)
-        })
     }
 
 
@@ -57,7 +54,7 @@ export const Profile = (props) => {
                             return (
                                 <div className="user-question">
                                     <Question question={question} />
-                                    <button className="delete-button">Delete</button>
+                                    <button className="delete-button" onClick={() => d(token, question.id)}>Delete</button>
                                 </div>
                             )
                         }
