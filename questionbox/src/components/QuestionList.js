@@ -14,8 +14,10 @@ export const QuestionList = (props) => {
     return (
         <>
                 <h1 className='title'>QuestionBox
-                <Link to='/Profile'><button className="profile-button">Profile</button></Link>
-                <button className="logout" onClick={() => handleLogout(token)}>Logout</button>
+                <div className="inside-header">
+                    <Link to='/Profile'><button className="profile-button">Profile</button></Link>
+                    <button className="logout" onClick={() => handleLogout(token)}>Logout</button>
+                </div>
                 </h1>
                 <main>
                     <Sidebar />

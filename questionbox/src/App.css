@@ -34,8 +34,16 @@ main {
     border-radius: 2px;
     background-color: white;
     padding: 10px;
-    margin-right: 50px;
-    flex-grow: 1;
+    margin-right: 20px;
+}
+
+.inside-header {
+    display: flex;
+}
+
+.profile-button:hover {
+    cursor: pointer;
+    background-color: rgb(231, 231, 231);
 }
 
 .questions {

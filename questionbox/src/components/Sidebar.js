@@ -1,6 +1,12 @@
 import React from 'react'
 import '../App.css'
 import { SidebarData } from './SidebarData'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from 'react-router-dom'
 
 export function Sidebar () {
   return (
