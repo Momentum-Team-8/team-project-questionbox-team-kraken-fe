@@ -30,7 +30,7 @@ export const Profile = (props) => {
         .then(data => {
             setAnswers(data.data)
         })
-    }, [])
+    })
 
     const d = (token, id) => {
         deleteQuestion(token, id)
