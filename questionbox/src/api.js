@@ -41,18 +41,19 @@ export function requestUserInfo (token) {
     })
     .then((response) => response)
 }
-function getAnswers (token) {
-  if (token) {
-    return axios.get('https://team-kraken-questionbox.herokuapp.com/answers')
-      .then(res => res)
-  }
-}
+
 export function requestQuestions (token) {
   return getQuestionList(token)
 }
 export function requestAnswers (token) {
   return getAnswers(token)
 }
+export function getAnswers (token) {
+    if (token) {
+      return axios.get('https://team-kraken-questionbox.herokuapp.com/answers')
+        .then(res => res)
+    }
+  }
 
 function getQuestionList (token) {
   if (token) {

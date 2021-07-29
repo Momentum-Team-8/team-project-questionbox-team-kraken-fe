@@ -59,7 +59,7 @@ export function App () {
         return expanded
             ?   
                 <Router>
-                    <QuestionDetails question={selectedQuestion} setExpanded={setExpanded} />
+                    <QuestionDetails question={selectedQuestion} setExpanded={setExpanded} token={token} />
                 </Router>
             : (
                 <Router>
