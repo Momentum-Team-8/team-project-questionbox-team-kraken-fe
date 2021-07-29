@@ -6,7 +6,7 @@ export const Answers = (props) => {
   const [answer, setAnswer] = useState('')
   const history = useHistory()
   const { id } = useParams()
-  const { token } = props
+  const { token, question } = props
 
   const handleChange = (event) => {
     setAnswer(event.target.value)
@@ -19,7 +19,7 @@ export const Answers = (props) => {
         'https://team-kraken-questionbox.herokuapp.com/answers/create/',
         {
           answer: answer,
-          question: 18
+          question: question.id
         },
         {
           headers: {

@@ -33,30 +33,30 @@ export const Profile = (props) => {
     <>
       <h1 className='title'>QuestionBox<button className='logout' onClick={() => handleLogout(token)}>Logout</button></h1>
       <main>
-          <Sidebar />
-          <div className='profile'>
-              <h2>Profile<h3>{username}</h3></h2>
+        <Sidebar />
+        <div className='profile'>
+          <h2>Profile<h3>{username}</h3></h2>
 
-              <div className='asked-questions'>
-              <h3>Asked Questions: </h3>
-              {questions.map((question, idx) => {
-                  if (question.user === user) {
-                    return (
-                        <Question question={question} />
-                    )
-                  }
-                })}
-            </div>
-              <h3>Given Answers</h3>
-              {answers.map((answer, idx) => {
-              if (answer.user === user) {
+          <div className='asked-questions'>
+            <h3>Asked Questions: </h3>
+            {questions.map((question, idx) => {
+              if (question.user === user) {
                 return (
-                    <AnswerDetail answer={answer} />
+                    <Question question={question} />
                 )
               }
             })}
-            </div>
-        </main>
+          </div>
+          <h3>Given Answers</h3>
+          {answers.map((answer, idx) => {
+            if (answer.user === user) {
+              return (
+                <AnswerDetail answer={answer} />
+              )
+            }
+          })}
+        </div>
+      </main>
     </>
   )
 }
