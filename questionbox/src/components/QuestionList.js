@@ -14,7 +14,7 @@ export const QuestionList = (props) => {
     return (
         <>
                 <h1 className='title'>QuestionBox
-                <Link to='/Profile'><button className="logout">Profile</button></Link>
+                <Link to='/Profile'><button className="profile-button">Profile</button></Link>
                 <button className="logout" onClick={() => handleLogout(token)}>Logout</button>
                 </h1>
                 <main>
