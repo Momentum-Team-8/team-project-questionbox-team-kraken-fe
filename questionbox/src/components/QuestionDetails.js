@@ -17,6 +17,10 @@ export const QuestionDetails = (props) => {
         <p>Favorited by: {question.favorited_by}</p>
         <p>{question.created_at}</p>
         <p>Tags: '{question.tag}'</p>
+        <div className="favorite">
+                <input type="checkbox" id="scales" name="scales"></input>
+                <label for="scales">Favorite</label>
+        </div>
         {/* question.answers && question.answers.map */}
         <Answers />
         </div>

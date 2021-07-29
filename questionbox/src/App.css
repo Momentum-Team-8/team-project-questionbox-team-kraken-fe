@@ -292,3 +292,19 @@ width: 600px;
 .profile > .asked-questions {
     margin-bottom: 50px;
 }
+
+.user-question {
+    display: flex;
+}
+
+.delete-button {
+    background-color: rgb(255, 74, 74);
+    border-radius: 2px;
+    border: 1px solid grey;
+    width: 60px;
+}
+
+.delete-button:hover {
+    background-color: red;
+    cursor: pointer;
+}

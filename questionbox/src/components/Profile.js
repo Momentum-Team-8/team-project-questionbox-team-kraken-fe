@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { requestUserInfo } from '../api'
 import { requestQuestions } from '../api'
 import { requestAnswers } from '../api'
+import { deleteQuestion } from '../api'
 import { Sidebar } from './Sidebar'
 import { Question } from './Question.js'
 import { AnswerDetail } from './AnswerDetail'
@@ -30,9 +31,14 @@ export const Profile = (props) => {
         .then(data => {
             setAnswers(data.data)
         })
-    }, [])
+    }, [questions])
 
-    
+    const d = (id) => {
+        deleteQuestion(token, id)
+        .then (data => {
+            console.log(data)
+        })
+    }
 
 
     return (
@@ -49,7 +55,10 @@ export const Profile = (props) => {
                     {questions.map((question, idx) => {
                         if (question.user === user) {
                             return (
-                                <Question question={question} />
+                                <div className="user-question">
+                                    <Question question={question} />
+                                    <button className="delete-button">Delete</button>
+                                </div>
                             )
                         }
                     })}

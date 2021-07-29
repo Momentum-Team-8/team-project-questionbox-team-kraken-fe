@@ -14,11 +14,12 @@ export const Question = (props) => {
     setSelectedQuestion(question)
   }
 
-  return (
-    <div className='question-card'>
-      <h2 onClick={() => seeDetails(question)}>{question.title}</h2>
-      <p>{question.user}</p>
-      <p>{question.created_at}</p>
-    </div>
-  )
+        return (
+        <div className='question-card'>
+            <h2 onClick={() => seeDetails(question)}>{question.title}</h2>
+            <p>{question.user}</p>
+            <p>{question.created_at}</p>
+        </div>
+        )
+
 }
